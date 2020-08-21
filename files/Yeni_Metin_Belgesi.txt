@@ -1,0 +1,18 @@
+URL: http://192.168.0.10:5000/orhunakar, https://192.168.0.10:5001/orhunakar
+
+
+redirect
+
+form3/id/malzeme
+
+100.86.135.44
+
+
+FieldError at /form3/form3/pk/malzeme/71
+Cannot resolve keyword 'form3' into field. Choices are: Form333, Form333_id, Miktari, birim_fiyati, id, kimden, kime, malzeme_adi, olcu_birimi, sira_no, tarih, tutar
+
+
+def malzeme(request,Form333):
+    malzemeler = Malzeme.objects.all.filter(form3__id=Form333)
+
+Burada ki form3__id ' de sorun çıkarıyor ona direkt id verdıgımde sorun ortadan kalkıyor yalız goruntuledıgım malzemeview.html sadece baslıklar gelıyor(<th>) içini doldurdugum kısım gelmıyor(<td>)

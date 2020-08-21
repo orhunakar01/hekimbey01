@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:Content-Disposition="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>body{background-color:Black;color:orange}</style>
+</head>
+<body>
+
+<h2>Girilen Ekran Detay Sayfası</h2><br><br>
+<a href="/form1" class="btn btn-info" role="button" >Liste Sayfasına Dön</a><br>
+<div class="table-responsive">
+    <table enctype="multipart/form-data" class="table table-hover table-dark"   width="75" >
+  <thead>
+    <tr>
+      <th scope="col"><i>Oluşturan Kişi</i></th>
+      <th scope="col"><i>Birim</i></th>
+      <th scope="col"><i>Kategori</i></th>
+      <th scope="col"><i>İşin Sorm</i></th>
+      <th scope="col"><i>Eklenen Dosya</i></th>
+      <th scope="col"><i>İş Başlama Tarh.</i></th>
+      <th scope="col"><i>İş Bitiş Tarh.</i></th>
+      <th scope="col"><i>Açıklama</i></th>
+      <th scope="col"><i>İptal Et</i></th>
+
+
+    </tr>
+     </thead>
+  <tbody>
+    <tr>
+        <td>{{liste.Olusturan.username}}</td>
+        <td>{{liste.ilgili_birim}}</td>
+        <td>{{liste.isin_kategorisi}}</td>
+        <td>{{liste.sorumlu_kisi}}</td>
+         <td><a href="{%url 'download' liste.id%}" download >{{liste.dosya}} </a></td>
+        <td>{{liste.baslangic}}</td>
+        <td>{{liste.bitis}}</td>
+        <td>{{liste.konusu}}</td>
+        <td>{% if liste.iptal is True %}
+            <div style="color:Red"><strong>İşlem İptal Edildi</strong></div>
+            {%else%}
+            <div style="color:Green"><strong>İşlem Açık</strong></div>
+            {%endif%}
+
+
+
+
+
+
+
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+    </div>
+</body>
+</html>

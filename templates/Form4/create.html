@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Hekimbey-create-4</title>
+<style>body{background-color:Black;color:orange}</style>
+</head>
+<body>
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{ form4.media }}            {# Adds date-picker required JS and CSS #}
+
+<div class="container">
+ <div class="row justify-content-center">
+  <div class="form-group col-md-4 col-md-offset-5 align-center ">
+
+<form class="" method="POST">
+    {% csrf_token %}
+    <h2>Form4 Kayıt Formu </h2>
+    <br>
+        <a href="/form4" class="btn btn-info" role="button" >Liste Sayfasına Dön</a><br>
+        <br>
+    {{form4.as_p}}
+    <input type="submit" value="Kaydet" class="btn btn-success">
+        <a href="/form4" class="btn btn-info" role="button">Vazgeç</a>
+</form>
+  </div>
+ </div>
+</div>
+</body>
+</html>
+   <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+

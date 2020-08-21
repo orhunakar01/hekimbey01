@@ -1,0 +1,85 @@
+<!DOCTYPE html >
+<html lang="en">
+<meta charset="utf-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+<div>
+    <br>
+
+<input name="tarih" type="text" placeholder="Tarihi Giriniz"><br><br>
+
+<input name="kimden" type="text" placeholder="Kimden GÃ¶nderilecek : "><br><br>
+
+<input name="kime" type="text" placeholder="Kime GÃ¶nderilecek : "><br><br>
+
+
+</div>
+
+<form method="POST" >
+        {% csrf_token %}
+<table class="" border="5px"  >
+
+        <tr>
+            <th scope="row">SiraNo</th>
+            <th scope="row">Malzeme Adı</th>
+            <th scope="row">Birim Fiyatı</th>
+            <th scope="row">Miktari±</th>
+            <th scope="row">Ã–lÃ§Ã¼ Birimi</th>
+            <th scope="row">Tutar</th>
+        </tr>
+        <tr align="">
+            <td>
+                <input name="sira_no" type='text' value=""></td>
+            <td>
+                <input name="malzeme_adi" type='text' value=""></td>
+            <td>
+                <input name="birim_fiyati" type='text' value=""></td>
+            <td>
+                <input name="Miktari" type='text' value=""></td>
+            <td>
+                <input name="olcu_birimi" type='text' value=""></td>
+            <td>
+                <input name="tutar" type='text' value=""></td>
+
+        </tr>
+    </table><br><br>
+    <input type="submit" value="Kaydet" class="btn btn-success">
+
+    </form>
+ <a href="/form3" class="btn btn-info" role="button">Bitir</a>
+</body>
+</html>
+
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <!--<script type="text/javascript">
+
+        //<![CDATA[
+        $(window).load(function () {
+            $('.AddNew').click(function () {
+                var row = $(this).closest('tr').clone();
+                row.find('input').val('');
+                $(this).closest('tr').after(row);
+                $('input[type="button"]', row).removeClass('AddNew').addClass('RemoveRow').val('( - )');
+            });
+
+            $('table').on('click', '.RemoveRow', function () {
+                $(this).closest('tr').remove();
+            });
+        });//
+
+
+    </script>-->

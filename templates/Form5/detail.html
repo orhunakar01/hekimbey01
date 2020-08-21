@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:Content-Disposition="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>body{background-color:Black;color:orange}</style>
+</head>
+<body>
+
+<h2>Form Detay Sayfası</h2><br>
+<a href="/form5" class="btn btn-info" role="button" >Liste Sayfasına Dön</a><br>
+
+    <table  class="table table-hover table-dark"   width="75" >
+  <thead>
+    <tr>
+      <th scope="col"><i>Oluşturan Kişi</i></th>
+      <th scope="col"><i>Periyot</i></th>
+      <th scope="col"><i>Periyot Ödeme Tutarı</i></th>
+      <th scope="col"><i>Toplam Ödeme Tutarı</i></th>
+      <th scope="col"><i>Fatura Dosyası</i></th>
+      <th scope="col"><i> Ödeme Periyodu Bitiş Tarih</i></th>
+      <th scope="col"><i> Fatura Vadesi Tarih</i></th>
+      <th scope="col"><i>Açıklama</i></th>
+
+
+    </tr>
+     </thead>
+  <tbody>
+    <tr>
+        <td>{{listem.Olusturan.username}}</td>
+        <td>{{listem.odemePeriyodu}}</td>
+        <td>{{listem.periyotOdemeTutari}}</td>
+        <td>{{listem.toplamOdemeTutari}}</td>
+        <td><a href="{%url 'download5' listem.id%}" download >{{listem.dosya}} </a></td>
+        <td>{{listem.tarih}}</td>
+         <td>{{listem.faturaVade}}</td>
+         <td>{{listem.Aciklama}}</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

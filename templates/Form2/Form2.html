@@ -1,0 +1,149 @@
+
+<html lang="Tr-tr">
+<head>
+  <title>Hekimbey-2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+footer
+{
+    font-family: Helvetica;
+    color: orange;
+    font-size: 12pt;
+    background-color: #FAFAFA;
+}
+
+
+h2
+{
+    font-family: Comic-Sans;
+    color: orange;
+    font-size: 25pt;
+    background-color: #FAFAFA;
+
+}
+body{background-color:Black;color:orange}
+td:hover {
+  background-color:blue;
+}
+
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <div  class="navbar-toggler">
+    <div class="collapse navbar-collapse">
+      <a class="logo-img-sticky site-logo-img-sticky" href="https://hekimbey.com.tr/">
+          <img class="logo-img-sticky site-logo-img-sticky" src="https://hekimbey.com.tr/wp-content/uploads/2016/10/logo.png" alt="HEKİMBEY">
+          </a>
+    </div>
+    <ul class="nav navbar-nav">
+       <li class="active"><a style = "font-family:tahoma;color:gold;font-size:20 " href="/anasayfa" class="btn btn-dark" role="button"><strong>Ana Sayfa</strong></a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 " href="/form1" class="btn btn-dark" role="button"><strong>İş Ekle</strong></a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 " href="/form2"  class="btn btn-dark" role="button"><strong>Sorumlu Ata</strong> </a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 "  href="/form3"  class="btn btn-dark" role="button"><strong>Teklif</strong> </a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 " href="/form4"  class="btn btn-dark" role="button"><strong>Hazırlama</strong> </a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 " href="/form5"  class="btn btn-dark" role="button"><strong>Muhasebe</strong></a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 " href="/form6"  class="btn btn-dark" role="button"><strong>Firmalar</strong></a></li>
+        <li><a style = "font-family:Comic Sans;color:green;font-size:18 " href="/form7"  class="btn btn-dark" role="button"><strong>Form7</strong></a></li>
+        <form class="navbar-form navbar-left" role="search" method="GET" action="">
+        <div class="input-group">
+            <input class="form-control" type="text" name="q" placeholder="Aratılacak Kelimeyi Giriniz.!" id='myInput' onkeyup='searchTable()'>
+            <span class="input-group-btn">
+                <input class="btn btn-success" type="submit" value="Temizle">
+            </span>
+        </div>
+        </form>
+    </ul>
+  </div>
+</nav>
+
+<h2 align="center" style="color:Blue"><u><i><b>_Hekimbey Sorumlu Atama</b></i></u></h2>
+
+<form method="POST" action="" enctype="multipart/form-data" >{% csrf_token %}
+
+        <div style="overflow-x:auto;">
+<table class="table table-hover table-dark"  width="70" id='myTable'>
+  <thead>
+    <tr>
+      <th scope="col"><i>ID</i></th>
+        <th scope="col"><i>Oluşturan Kişi</i></th>
+        <th scope="col"><i>Çalışılan Firma</i></th>
+        <th scope="col"><i>Kategori</i></th>
+      <th scope="col"><i>Görevli Personel</i></th>
+      <th scope="col"><i>Atanma Tarihi</i></th>
+         <th scope="col"><i>Detay</i></th>
+        <th scope="col"><i>Düzenle</i></th>
+        <th scope="col"><i>Sil</i></th>
+        <th scope="col"><i>İşlem Durumu</i></th>
+    </tr>
+
+  </thead>
+  <tbody>
+                {% for listem in listeler %}
+    <tr>
+
+
+        <td>{{listem.Form22.id}}</td>
+        <td id="user">{{listem.Olusturan.username}}</td>
+        <td>{{listem.Form22.FirmaAdi}}</td>
+         <td>{{listem.Form22.isin_kategorisi}}</td>
+        <td>{{listem.Sorumlusu}}</td>
+        <td>{{listem.AtanmaTarihi.date}}</td>
+        <td><a href="{%url 'detail2' listem.id%}" class="btn btn-default" role="button">Detay</a></td>
+        <td><a href="{%url 'update2' listem.id%}" class="btn btn-info" role="button">Düzenle</a></td>
+        <td><a href="{%url 'delete2' listem.id%}" class="btn btn-danger" role="button" onclick="return confirmDel();">Sil</a></td>
+
+        {% if listem in islemdeki %}
+        <td><a href="" class="btn btn-success" role="button" name="cekim">İşleme Alındı
+        {%else%}
+        <td><a href="/form3/create/{{listem.Form22.id}}" class="btn btn-warning" role="button" name="cekim">İşlem Bekliyor
+        {%endif%}
+<!-- Bu alana  İf Else Gelecek // Bekliyor- İşleme Alındı -->
+        </a></td>
+
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+        </div>
+</form>
+</body>
+
+<script language="javascript">
+function confirmDel() {
+ var agree=confirm("Bu içeriği silmek istediğinizden emin misiniz?\nBu işlem geri alınamaz!");
+ if (agree) {
+  return true ; }
+ else {
+  return false ;}
+}
+</script>
+
+<script>
+function searchTable() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+</script>

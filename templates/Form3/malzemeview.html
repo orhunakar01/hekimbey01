@@ -1,0 +1,38 @@
+
+<form method="POST" >
+    {% csrf_token %}
+
+<a href="/form3" class="btn btn-info" role="button" >Liste Sayfasına Dön</a><br><br>
+    <strong>Tarih : {{malzeme.tarih}}</strong><br>
+     <strong>Kimden : {{malzeme.kimden}}</strong><br>
+     <strong>Kime : {{malzeme.kime}}</strong><br>
+<table class="table table-hover table-dark"  width="70" >
+  <thead>
+    <tr>
+      <th><i>SıraNo</i></th>
+      <th><i>Malzeme Adı</i></th>
+      <th><i>Birim Fiyatı</i></th>
+      <th><i>Miktarı</i></th>
+      <th><i>Ölçü Birimi</i></th>
+      <th><i>Tutar</i></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for malzeme in malzemeler %}
+    <tr>
+
+        <td>{{malzeme.sira_no}}</td>
+        <td>{{malzeme.malzeme_adi}}</td>
+        <td>{{malzeme.birim_fiyati}}</td>
+        <td>{{malzeme.Miktari}}</td>
+        <td>{{malzeme.olcu_birimi}}</td>
+        <td>{{malzeme.tutar}}</td>
+    </tr>
+
+   {% endfor %}
+  </tbody>
+</table>
+
+    </form>

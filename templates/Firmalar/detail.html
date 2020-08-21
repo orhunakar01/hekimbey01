@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:Content-Disposition="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>body{background-color:Black;color:orange}</style>
+</head>
+<body>
+
+<h2>Form Detay Sayfası</h2><br>
+<a href="/form5" class="btn btn-info" role="button" >Liste Sayfasına Dön</a><br>
+
+<table class="table table-hover table-dark"  width="75" id='myTable' >
+  <thead>
+    <tr>
+      <th scope="col"><i>ID</i></th>
+        <th scope="col"><i>Firma Adı</i></th>
+      <th scope="col"><i>Firma Adresi</i></th>
+      <th scope="col"><i>Firma Telefon</i></th>
+        <th scope="col"><i>Düzenle</i></th>
+        <th scope="col"><i>Sil</i></th>
+    </tr>
+ {% for liste in listele %}
+  </thead>
+  <tbody>
+    <tr>
+        <td scope="row" data-model-name="Form1ID">{{liste.id}}</td>
+        <td>{{liste.firma_adi}}</td>
+        <td>{{liste.firma_adresi}}</td>
+        <td>{{liste.firma_telefon}}</td>
+        <td>{{liste.baslangic}}</td>
+        <td><a href="{% url 'update' liste.id%}" class="btn btn-info" role="button">Düzenle</a></td>
+        <td><a href="{% url 'delete' liste.id%}" class="btn btn-danger" role="button" onclick="return confirmDel();">Sil</a></td>
+
+
+    </tr>
+  {%endfor%}
+  </tbody>
+</table>
+</body>
+</html>

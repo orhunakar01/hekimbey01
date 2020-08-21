@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hekimbey</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Orhun Akar" />
+    <style type="text/css">
+*{margin:0px;padding:0px;border:0px;font-size:100%;font:inherit;vertical-align:baseline;border-spacing:0px;}
+#yonetim_giris_body{background-color:#edf0f5;font-family:"Verdana", Lucida Grande, Tahoma, Arial, sans-serif;font-size:13px;}
+#yonetim_giris_kapsayici{margin:15% auto;width:297px;height:235px;padding:37px 25px 0 25px;background:url('images/1.png');}
+#yonetim_giris_kapsayici input[type=text], #yonetim_giris_kapsayici input[type=password]
+{
+    width:190px;
+    padding:0 5px 0 5px;
+    height:46px;
+    border:1px solid #e1e1e1;
+    margin-bottom:12px;
+    border-radius:5px;
+    color:#9e9696;
+    float:left;
+}
+#yonetim_giris_kapsayici p {
+    width: 90px;
+    padding: 15px 5px 0 0;
+    float: left;
+    font-size: 13px;
+}
+#yonetim_giris_kapsayici input[type=submit] {
+    width: 295px;
+    height: 46px;
+    border: 1px solid #a2c359;
+    margin-bottom: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #525b3d;
+    background-color: #b3d175;
+    cursor: pointer;
+}
+#yonetim_giris_kapsayici span {
+    color: #990000;
+}
+#yonetim_giris_kapsayici a {
+    color: #0000CC;
+    text-decoration: underline;
+}
+.orby {
+padding: 3px;
+background: #000;
+color: #fff;
+transition: background 0.5s ease-in;
+text-decoration: none;
+position: absolute;
+right: 0px;
+bottom: 0px;
+font-weight: bold;
+border-radius: 3px 3px 0px 0px;
+}
+
+.orby:hover {
+    background: gray;
+    color: #ddd;
+}
+    </style>
+</head>
+<body id="yonetim_giris_body">
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        <div id="yonetim_giris_kapsayici">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </form>
+    <a class="orby" href="https://hekimbey.com.tr/"> <img src="https://hekimbey.com.tr/wp-content/uploads/2016/10/logo.png" alt="Hekimbey-logo"/> </a>
+</body>
+</html>

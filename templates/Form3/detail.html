@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:Content-Disposition="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>body{background-color:Black;color:orange}</style>
+</head>
+<body>
+
+<h2>Form Detay Sayfası</h2><br><br>
+<a href="/form3" class="btn btn-info" role="button" >Liste Sayfasına Dön</a><br>
+
+    <table  class="table table-hover table-dark"   width="75" >
+  <thead>
+    <tr>
+      <th scope="col"><i>Oluşturan Kişi</i></th>
+      <th scope="col"><i>Kategori</i></th>
+      <th scope="col"><i>Dosya</i></th>
+      <th scope="col"><i>Açıklama</i></th>
+      <th scope="col"><i>Tarih</i></th>
+
+
+    </tr>
+     </thead>
+  <tbody>
+    <tr>
+        <td>{{listem.Olusturan.username}}</td>
+        <td>{{listem.isin_kategorisi}}</td>
+        <td><a href="{%url 'download3' listem.id%}" download >{{listem.dosya}} </a></td>
+        <td>{{listem.Aciklama}}</td>
+        <td>{{listem.tarih}}</td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
